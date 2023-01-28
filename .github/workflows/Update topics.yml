@@ -1,9 +1,6 @@
 name: Update topics of a douban group
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
   schedule:
     - cron: '0 0 * * *'
