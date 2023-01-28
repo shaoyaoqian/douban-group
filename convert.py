@@ -40,7 +40,7 @@ for i in r.smembers(redis_douban_group_all_topics):
         topic_comments.append((comment or b'').decode('utf-8'))
     topic = {}
     topic['id'] = topic_id
-    topic['content'] = (topic_content).decode('utf-8')
+    topic['content'] = (topic_content or b'').decode('utf-8')
     topic['title']= (topic_title or b'').decode('utf-8')
     topic['url'] =  (topic_url or b'').decode('utf-8')
     topic['comments'] = topic_comments
