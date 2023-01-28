@@ -37,7 +37,7 @@ for i in r.smembers(redis_douban_group_all_topics):
     print(topic_title,topic_id,topic_url,topic_content)
     topic_comments = []
     for comment in r.smembers(redis_douban_group_topic_comments.format(topicid=topic_id)):
-        topic_comments.append(comment.decode('utf-8'))
+        topic_comments.append((b'' or comment).decode('utf-8'))
     topic = {}
     topic['id'] = topic_id
     topic['content'] = (b'' or topic_content).decode('utf-8')
