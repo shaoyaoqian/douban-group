@@ -30,6 +30,10 @@ class QuotesSpider(scrapy.Spider):
         item['url'] = response.url
         item['title'] = response.css('.article h1').get()
         item['content'] = response.css('#link-report .topic-content').get()
+        item['author'] = response.css('.from a::text').get() 
+        item['author_link'] = response.css('.from a::attr(href)').get()
+        item['create-time'] = response.css('.create-time::text').get()
+        item['create-ip'] = response.css('.create-ip::text').get()
         comments = []
         for comment_item in response.css('.comment-item'):
             comments.append(comment_item.css('.reply-doc').get())
