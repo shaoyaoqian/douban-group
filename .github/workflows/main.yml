@@ -14,12 +14,7 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@main
-      
-    # - name: Start Redis
-    #   uses: supercharge/redis-github-action@1.4.0
-    #   with:
-    #     redis-version: 7.0.5
-    #     redis-port: 29384
+    
     - name: Start Redis
       run: |
         sudo apt-get install -y redis
@@ -30,11 +25,12 @@ jobs:
       with:
         python-version: 3.8
 
-    - name: Download tweets & Download pictures & Store tweets
+    - name: Crawl douban group
       run: |
         pip install redis
         pip install scrapy
         scrapy crawl douban-group
+        python convert.py
 
     - name: Update database
       uses: actions-x/commit@v6
