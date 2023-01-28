@@ -24,6 +24,7 @@ jobs:
 
     - name: Crawl douban group
       run: |
+        pip install redis
         python convert.py
 
     - name: Update database
