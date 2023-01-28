@@ -31,17 +31,18 @@ data = []
 
 for i in r.smembers(redis_douban_group_all_topics):
     topic_id = i.decode('utf-8')
-    topic_content = r.get(redis_douban_group_topic_content.format(topicid=topic_id)).decode('utf-8')
-    topic_title = r.get(redis_douban_group_topic_title.format(topicid=topic_id)).decode('utf-8')
-    topic_url = r.get(redis_douban_group_topic_url.format(topicid=topic_id)).decode('utf-8')
+    topic_content = r.get(redis_douban_group_topic_content.format(topicid=topic_id))
+    topic_title = r.get(redis_douban_group_topic_title.format(topicid=topic_id))
+    topic_url = r.get(redis_douban_group_topic_url.format(topicid=topic_id))
+    print(topic_title,topic_id,topic_url,topic_content)
     topic_comments = []
     for comment in r.smembers(redis_douban_group_topic_comments.format(topicid=topic_id)):
         topic_comments.append(comment.decode('utf-8'))
     topic = {}
     topic['id'] = topic_id
-    topic['content'] = topic_content
-    topic['title']=topic_title
-    topic['url'] = topic_url
+    topic['content'] = topic_content.decode('utf-8')
+    topic['title']=topic_title.decode('utf-8')
+    topic['url'] = topic_url.decode('utf-8')
     topic['comments'] = topic_comments
     data.append(topic)
 
