@@ -1,4 +1,4 @@
-name: Update topics of a douban group
+name: Generate JSON files
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
       with:
         python-version: 3.8
 
-    - name: Crawl douban group
+    - name: Generate JSON files
       run: |
         pip install redis
         python convert.py
