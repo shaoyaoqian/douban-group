@@ -1,9 +1,9 @@
 name: Update topics of a douban group
 
 on:
-  workflow_dispatch:
-  schedule:
-    - cron: '0 0 * * *'
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -24,9 +24,7 @@ jobs:
 
     - name: Crawl douban group
       run: |
-        pip install redis
-        pip install scrapy
-        scrapy crawl douban-group
+        python convert.py
 
     - name: Update database
       uses: actions-x/commit@v6
