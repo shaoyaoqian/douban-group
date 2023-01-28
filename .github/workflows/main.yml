@@ -1,0 +1,48 @@
+name: Update topics of a douban group
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@main
+      
+    # - name: Start Redis
+    #   uses: supercharge/redis-github-action@1.4.0
+    #   with:
+    #     redis-version: 7.0.5
+    #     redis-port: 29384
+    - name: Start Redis
+      run: |
+        sudo apt-get install -y redis
+        redis-server --port 29384 &
+
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+
+    - name: Download tweets & Download pictures & Store tweets
+      run: |
+        pip install redis
+        pip install scrapy
+        scrapy crawl douban-group
+
+    - name: Update database
+      uses: actions-x/commit@v6
+      with:
+        email: github-actions@noreply.github.com
+        name: github-actions
+        message: 'update database'
+        branch: main
+        files: .
+        token: ${{ secrets.GITHUB_TOKEN }}
+        force: true
