@@ -50,8 +50,11 @@ class RedisWriterPipeline(object):
         r.sadd(redis_douban_group_all_topics, topic_id)
         r.set(redis_douban_group_topic_url.format(topicid=topic_id), topic_url)
         old_topic_content = r.get(redis_douban_group_topic_content.format(topicid=topic_id))
+        # 原本没有内容时，添加内容
+        if old_topic_content == None:
+            r.set(redis_douban_group_topic_content.format(topicid=topic_id), topic_content)
         # HACK: 当新内容长度大于旧内容时才更新
-        if old_topic_content != None and len(topic_content) > len(old_topic_content):
+        elif len(topic_content) > len(old_topic_content):
             r.set(redis_douban_group_topic_content.format(topicid=topic_id), topic_content)
         r.set(redis_douban_group_topic_title.format(topicid=topic_id), topic_title)
         # HACK: 如果评论内容修改了，会新增加一条
