@@ -1,6 +1,4 @@
 *.html
 __pycache__
-
-
-
-
+img
+.DS_Store

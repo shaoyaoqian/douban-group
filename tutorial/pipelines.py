@@ -75,3 +75,33 @@ class RedisWriterPipeline(object):
         r.save()
         return item
 
+
+from scrapy.exceptions import DropItem
+from scrapy.pipelines.images import ImagesPipeline
+import scrapy
+class ImagePipeline(ImagesPipeline):
+
+    #自定义文件路径和文件名
+    def file_path(self, request, response=None, info=None):
+        domain = request.meta['item']['domain']
+        image_guid = request.url.split('/')[-1]
+        print(image_guid)
+        print(domain)
+        return 'full/%s/%s' % (domain,image_guid)
+
+    #用get_media_requests方法进行下载控制，返回一个requests对象
+    #对象被Pipeline处理，下载结束后，默认直接将结果传给item_completed方法
+    def get_media_requests(self, item, info):
+        for url in item['image_urls']:
+            yield scrapy.Request(url, meta={'item': item})
+
+
+    def item_completed(self,results,item,info):
+        #创建图片存储路径
+        path=[x['status'] for ok,x in results if ok]
+        #判断图片是否下载成功，若不成功则抛出DropItem提示
+        if not path:
+            raise DropItem('Item contains no images')
+        print(u'正在保存图片：', item['image_urls'])
+        return item
+

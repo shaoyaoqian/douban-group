@@ -32,7 +32,7 @@ DEFAULT_REQUEST_HEADERS = {
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 3
+# DOWNLOAD_DELAY = 3
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -70,8 +70,28 @@ DOWNLOAD_DELAY = 3
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'tutorial.pipelines.RedisWriterPipeline': 300,
+    'tutorial.pipelines.ImagePipeline': 1,
+    # 'tutorial.pipelines.RedisWriterPipeline': 300,
 }
+
+
+#IMAGES_STORE用于设置图片存储路径
+IMAGES_STORE='img'
+
+# #IMAGES_THUMBS用于生成大小不同的缩略图
+# #以字典形式表示，键为文件名，值为图片尺寸
+# IMAGES_THUMBS={
+#     'small': (50, 50),
+#     'big': (200, 200),}
+
+#以下两个设置可以过滤尺寸小于100的图片
+IMAGES_MIN_HEIGHT=10
+IMAGES_MIN_WIDTH=10
+
+#IMAGES_EXPIRES用于设置失效期限
+#这里是90天，避免管道重复下载最近已经下载过的
+IMAGES_EXPIRES=90
+
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
