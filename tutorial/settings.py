@@ -13,10 +13,9 @@ SPIDER_MODULES = ['tutorial.spiders']
 NEWSPIDER_MODULE = 'tutorial.spiders'
 
 DEFAULT_REQUEST_HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:61.0) Gecko/20100101 Firefox/61.0',
-    # 'Cookie': cookie
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.2 Safari/605.1.15',
+    'Cookie': '__utma=30149280.131450382.1674023924.1674892442.1674963921.11; __utmb=30149280.50.10.1674963921; __utmc=30149280; __utmt=1; __utmv=30149280.6250; __utmz=30149280.1674023924.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); push_doumail_num=0; push_noty_num=0; ap_v=0,6.0; frodotk_db="39aa2148ce7b3642acfe63da6b71a2c6"; ck=bIaF; dbcl2="62503351:S+2R5Qca+zI"; __gpi=UID=00000ba0fa05b967:T=1673280250:RT=1674879201:S=ALNI_MYsKrZQ3V2f0iwU0Z-8cyye8ruUEQ; gr_user_id=797e93ce-6d9a-4eb6-b446-323350cc5cbe; viewed="10559282_30429946"; ct=y; douban-fav-remind=1; __gads=ID=53960aca160e9202-223af47137d900e3:T=1673280250:RT=1673280250:S=ALNI_MbWkZ6Tr33eF2dK8CNbywMkL4JhKw; bid=tkbJxuM15hY; ll="118178"'
 }
-
 
 
 
@@ -32,7 +31,7 @@ DEFAULT_REQUEST_HEADERS = {
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-# DOWNLOAD_DELAY = 3
+DOWNLOAD_DELAY = 2
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16

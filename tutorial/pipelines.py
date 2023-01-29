@@ -84,10 +84,11 @@ class ImagePipeline(ImagesPipeline):
     #自定义文件路径和文件名
     def file_path(self, request, response=None, info=None):
         domain = request.meta['item']['domain']
+        album = request.meta['item']['album'] or 'default'
         image_guid = request.url.split('/')[-1]
         print(image_guid)
         print(domain)
-        return 'full/%s/%s' % (domain,image_guid)
+        return 'full/%s/%s/%s' % (domain, album, image_guid)
 
     #用get_media_requests方法进行下载控制，返回一个requests对象
     #对象被Pipeline处理，下载结束后，默认直接将结果传给item_completed方法
@@ -99,6 +100,7 @@ class ImagePipeline(ImagesPipeline):
     def item_completed(self,results,item,info):
         #创建图片存储路径
         path=[x['status'] for ok,x in results if ok]
+        print(path)
         #判断图片是否下载成功，若不成功则抛出DropItem提示
         if not path:
             raise DropItem('Item contains no images')

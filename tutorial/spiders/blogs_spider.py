@@ -9,18 +9,22 @@ class ImageItem(scrapy.Item):
     image_urls = scrapy.Field()
     images = scrapy.Field()
     domain = scrapy.Field()
+    album = scrapy.Field()
 
 class QuotesSpider(scrapy.Spider):
     name = "blogs"
     start_urls = [
-        # 'https://dusays.com',
+        'https://dusays.com',
         # 'https://blog.pengfeima.cn',
-        'https://blog.shishuai.monster',
+        # 'https://blog.shishuai.monster',
+        # 'https://skyreeves.cn/'
     ]
+    
+    custom_settings = {
+        'JOBDIR': 'jobs/blogs',
+    }
 
     def parse(self, response):
-        filename = self.name + str(random.random())[-5:] +'.png'
-
         for a in response.css('img::attr(src)').getall():
             item = ImageItem()
             item['image_urls'] = [a]
@@ -39,4 +43,4 @@ class QuotesSpider(scrapy.Spider):
             if 'http' in a :
                 continue
             else:
-                yield response.follow(url=a, callback=self.parse)
+                yield scrapy.Request(url=response.urljoin(a), callback=self.parse)
