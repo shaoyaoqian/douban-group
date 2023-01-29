@@ -14,7 +14,8 @@ class ImageItem(scrapy.Item):
 class QuotesSpider(scrapy.Spider):
     name = "douban-album"
     ''''
-    遍历相册的思路：先进入一个相册，打开单张照片，旁边会作者的其他相册
+    遍历相册的思路：先进入一个相册，打开单张相片，相片右侧会展示作者其他热门相册，但是这样并不能爬取作者所有相册。
+    用法：需要知道相册名和相册中一张相片的地址才能启动爬虫。
     '''
     def start_requests(self):
         urls = [
