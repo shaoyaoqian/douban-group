@@ -3,7 +3,7 @@ import scrapy
 import time
 
 year_month = time.strftime("%Y%m",time.localtime())
-date = str(int(time.strftime("%d",time.localtime()))-1)
+date = int(time.strftime("%d",time.localtime()))
 class QuotesSpider(scrapy.Spider):
     name = "hubei_news"
     start_urls = [
