@@ -15,18 +15,24 @@ if __name__ == '__main__':
         fromaddr = '499908174@qq.com'
         password = 'zzokkzruycbobicd'
         toaddrs = ['dhgxwxb@163.com', '499908174@qq.com']
- 
+        
+        m = MIMEMultipart()
         content = '请下载附件！'
         textApart = MIMEText(content)
+        m.attach(textApart)
  
+        # 湖北日报
         pdfFile = 'hubei_daily.html'
         pdfApart = MIMEApplication(open(pdfFile, 'rb').read())
         pdfApart.add_header('Content-Disposition', 'attachment', filename=pdfFile)
-
-        m = MIMEMultipart()
-        m.attach(textApart)
         m.attach(pdfApart)
-        m['Subject'] = '湖北日报摘要'
+
+        # 长江日报
+        # pdfFile = 'changjiang_daily.html'
+        # pdfApart = MIMEApplication(open(pdfFile, 'rb').read())
+        # pdfApart.add_header('Content-Disposition', 'attachment', filename=pdfFile)
+
+        m['Subject'] = '湖北新闻摘要'
         m['From'] = f'马鹏飞 <{fromaddr}>'
         m['To'] = f'许诺 <{toaddrs}>'
         m['Date']= time.strftime("%Y-%m-%d",time.localtime())
