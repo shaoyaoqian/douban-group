@@ -1,19 +1,18 @@
 import scrapy
+import random
+from pathlib import Path
+from urllib.parse import urlparse
 
-import time
-
-year_month = time.strftime("%Y%m",time.localtime())
-date = time.strftime("%d",time.localtime())
 class QuotesSpider(scrapy.Spider):
-    name = "hubei_news"
+    name = "changjiangdaily"
     start_urls = [
-        f'https://epaper.hubeidaily.net/pad/column/{year_month}/{date}/node_01.html',
+        'http://cjrb.cjn.cn/html/2023-02/11/node_1.htm',
     ]
     
     def parse(self, response):
         page = response.url.split("/")[-1]
         content = response.css('#scroller').get()
-        filename = f'content.html'
+        filename = f'hubei_daily.html'
         if content is not None:
             with open(filename,'a') as f:
                 f.write(content)

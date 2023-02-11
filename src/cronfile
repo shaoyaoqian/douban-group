@@ -1,0 +1,6 @@
+# PATH非常重要，因为cron bash和系统环境变量不一致
+PATH="/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+# 北京时间 - 8 
+# 每天执行一次湖北新闻
+ 55 23 * * * cd /opt/src/ && scrapy crawl hubei_news && python3 send_result.py
+# An empty line is required at the end of this file for a valid cron file.

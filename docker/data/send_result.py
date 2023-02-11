@@ -19,7 +19,7 @@ if __name__ == '__main__':
         content = '请下载附件！'
         textApart = MIMEText(content)
  
-        pdfFile = 'content.txt'
+        pdfFile = 'hubei_daily.html'
         pdfApart = MIMEApplication(open(pdfFile, 'rb').read())
         pdfApart.add_header('Content-Disposition', 'attachment', filename=pdfFile)
 
