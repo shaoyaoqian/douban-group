@@ -38,8 +38,10 @@ class QuotesSpider(scrapy.Spider):
                 if h2 is not None:
                     f.write(h2)
                 f.write(content)
-            if find_key_words(content):
+            keywords = find_key_words(content)
+            if len(keywords) > 0:
                 with open(filename_2,'a') as f:
+                    f.write('关键词：' + ', '.join(keywords))
                     if h1 is not None:
                         f.write(h1)
                     if h2 is not None:

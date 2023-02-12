@@ -5,7 +5,9 @@ company = ['激光', '百度', '集度', '长江存储', '光电', '当代集团
 key_words = [location_1, location_2, people, company]
 
 def find_key_words(content):
+    containing_words = []
     for i in key_words:
         for j in i:
             if j in content:
-                return True
+                containing_words.append(j)
+    return containing_words
