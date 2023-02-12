@@ -2,6 +2,8 @@ import scrapy
 from urllib.parse import urlparse
 import time
 
+from .sort_news import find_key_words
+
 year_month = time.strftime("%Y-%m",time.localtime())
 date = int(time.strftime("%d",time.localtime()))
 class QuotesSpider(scrapy.Spider):
@@ -28,6 +30,7 @@ class QuotesSpider(scrapy.Spider):
         h2 = response.css('.text_c h2').get()
         content = response.css('#ozoom').get()
         filename = f'changjiang_daily.html'
+        filename_2 = f'changjiang_daily_sorted.html'
         if content is not None:
             with open(filename,'a') as f:
                 if h1 is not None:
@@ -35,3 +38,11 @@ class QuotesSpider(scrapy.Spider):
                 if h2 is not None:
                     f.write(h2)
                 f.write(content)
+            if find_key_words(content):
+                with open(filename_2,'a') as f:
+                    if h1 is not None:
+                        f.write(h1)
+                    if h2 is not None:
+                        f.write(h2)
+                    f.write(content)
+            
