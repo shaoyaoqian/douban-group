@@ -5,7 +5,7 @@ import time
 year_month = time.strftime("%Y%m",time.localtime())
 date = int(time.strftime("%d",time.localtime()))
 class QuotesSpider(scrapy.Spider):
-    name = "hubei_news"
+    name = "hubei_daily"
     start_urls = [
         f'https://epaper.hubeidaily.net/pad/column/{year_month}/{date}/node_01.html',
     ]

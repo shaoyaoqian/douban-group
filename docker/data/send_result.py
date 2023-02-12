@@ -28,9 +28,10 @@ if __name__ == '__main__':
         m.attach(pdfApart)
 
         # 长江日报
-        # pdfFile = 'changjiang_daily.html'
-        # pdfApart = MIMEApplication(open(pdfFile, 'rb').read())
-        # pdfApart.add_header('Content-Disposition', 'attachment', filename=pdfFile)
+        pdfFile = 'changjiang_daily.html'
+        pdfApart = MIMEApplication(open(pdfFile, 'rb').read())
+        pdfApart.add_header('Content-Disposition', 'attachment', filename=pdfFile)
+        m.attach(pdfApart)
 
         m['Subject'] = '湖北新闻摘要'
         m['From'] = f'马鹏飞 <{fromaddr}>'

@@ -2,5 +2,7 @@
 PATH="/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 # 北京时间 - 8 
 # 每天执行一次湖北新闻
- 55 23 * * * cd /opt/src/ && scrapy crawl hubei_news && python3 send_result.py
+ 55 23 * * * cd /opt/src/ && scrapy crawl hubei_daily
+ 55 23 * * * cd /opt/src/ && scrapy crawl changjiang_daily 
+ 55 23 * * * cd /opt/src/ && python3 send_result.py
 # An empty line is required at the end of this file for a valid cron file.
