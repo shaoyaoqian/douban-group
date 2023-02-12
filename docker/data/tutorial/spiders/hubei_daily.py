@@ -1,6 +1,8 @@
 import scrapy
-
 import time
+
+
+from .sort_news import find_key_words
 
 year_month = time.strftime("%Y%m",time.localtime())
 date = int(time.strftime("%d",time.localtime()))
@@ -25,7 +27,15 @@ class QuotesSpider(scrapy.Spider):
     def parse_content(self, response):
         content = response.css('#scroller').get()
         filename = f'hubei_daily.html'
+        filename_2 = f'hubei_daily_sorted.html'
         if content is not None:
             with open(filename,'a') as f:
                 f.write(content)
+            if find_key_words(content):
+                with open(filename_2,'a') as f:
+                    f.write(content)
+
+        
+
+
         
