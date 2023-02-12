@@ -1,5 +1,5 @@
 # FROM python:3.9.6
-FROM ubuntu:latest
+FROM ubuntu:latest as builder
 COPY src/ /opt/src
 WORKDIR /opt/src
 
@@ -7,7 +7,7 @@ WORKDIR /opt/src
 RUN apt-get update && apt-get install -y python3-pip
 RUN pip install -r requirements.txt
 
-
+FROM builder as builder_ex
 # Install cron
 RUN apt-get -y install cron 
 # Copy hello-cron file to the cron.d directory
