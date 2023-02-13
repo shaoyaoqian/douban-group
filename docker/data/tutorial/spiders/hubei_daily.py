@@ -31,10 +31,11 @@ class QuotesSpider(scrapy.Spider):
         if content is not None:
             with open(filename,'a') as f:
                 f.write(content)
-            if find_key_words(content):
+            keywords = find_key_words(content)
+            if len(keywords) > 0:
                 with open(filename_2,'a') as f:
+                    f.write('关键词：' + ', '.join(keywords))
                     f.write(content)
-
         
 
 
