@@ -20,12 +20,12 @@ if __name__ == '__main__':
         content = '湖北新闻汇总:\n'
         content += f'湖北日报：https://epaper.hubeidaily.net/pad/column/202302/11/node_01.html\n'
         content += f'长江日报：http://cjrb.cjn.cn/html/2023-02/12/node_1.htm\n'
+        content += f'中国青年报：http://zqb.cyol.com/html/2023-02/10/nbs.D110000zgqnb_01.htm\n'
+        content += f'科技日报：http://digitalpaper.stdaily.com/http_www.kjrb.com/kjrb/html/2023-02/10/node_2.htm\n'
         content += '\n\n\n\n\n'
         content += '还未抓取内容：\n'
         content += '荆楚网：http://wh.cnhubei.com\n'
         content += '湖北网络广播电视台：https://news.hbtv.com.cn/cjy_hbxw/index.html\n'
-        content += '中国青年报：http://zqb.cyol.com/html/2023-02/10/nbs.D110000zgqnb_01.htm\n'
-        content += '科技日报：http://digitalpaper.stdaily.com/http_www.kjrb.com/kjrb/html/2023-02/10/node_2.htm\n'
         content += '极目新闻：http://www.ctdsb.net/\n'
         content += '中国新闻网｜湖北：http://www.hb.chinanews.com.cn/\n'
         content += '中国经济网：http://www.ce.cn/\n'
@@ -49,6 +49,26 @@ if __name__ == '__main__':
         pdfApart.add_header('Content-Disposition', 'attachment', filename=pdfFile)
         m.attach(pdfApart)
         pdfFile = 'changjiang_daily_sorted.html'
+        pdfApart = MIMEApplication(open(pdfFile, 'rb').read())
+        pdfApart.add_header('Content-Disposition', 'attachment', filename=pdfFile)
+        m.attach(pdfApart)
+        
+        # 中国青年报
+        pdfFile = 'youth_daily.html'
+        pdfApart = MIMEApplication(open(pdfFile, 'rb').read())
+        pdfApart.add_header('Content-Disposition', 'attachment', filename=pdfFile)
+        m.attach(pdfApart)
+        pdfFile = 'youth_daily_sorted.html'
+        pdfApart = MIMEApplication(open(pdfFile, 'rb').read())
+        pdfApart.add_header('Content-Disposition', 'attachment', filename=pdfFile)
+        m.attach(pdfApart)
+
+        # 科技日报
+        pdfFile = 'tech_daily.html'
+        pdfApart = MIMEApplication(open(pdfFile, 'rb').read())
+        pdfApart.add_header('Content-Disposition', 'attachment', filename=pdfFile)
+        m.attach(pdfApart)
+        pdfFile = 'tech_daily_sorted.html'
         pdfApart = MIMEApplication(open(pdfFile, 'rb').read())
         pdfApart.add_header('Content-Disposition', 'attachment', filename=pdfFile)
         m.attach(pdfApart)

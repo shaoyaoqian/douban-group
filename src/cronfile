@@ -2,6 +2,11 @@
 PATH="/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 # 北京时间 - 8 
 # 每天执行一次湖北新闻
+ 40 * * * * cd /opt/src/ && rm *.html
+ 50 * * * * cd /opt/src/ && touch changjiang_daily.html tech_daily.html hubei_daily.html youth_daily.html 
+ 50 * * * * cd /opt/src/ && touch changjiang_sorted_daily.html tech_sorted_daily.html hubei_sorted_daily.html youth_sorted_daily.html 
+ 55 * * * * cd /opt/src/ && scrapy crawl tech_daily
+ 55 * * * * cd /opt/src/ && scrapy crawl youth_daily
  55 * * * * cd /opt/src/ && scrapy crawl hubei_daily
  55 * * * * cd /opt/src/ && scrapy crawl changjiang_daily 
  55 * * * * cd /opt/src/ && python3 send_result.py
