@@ -1,0 +1,48 @@
+2023-02-14 10:50:46 1pRsta-00000W-K9 <= root@localhost U=root P=local S=30073
+2023-02-14 10:50:46 1pRsta-00000W-K9 => /var/mail/mail <root@localhost> R=mail4root T=address_file
+2023-02-14 10:50:46 1pRsta-00000W-K9 Completed
+2023-02-14 11:50:50 1pRtpi-000011-6K <= root@localhost U=root P=local S=30072
+2023-02-14 11:50:50 1pRtpi-000011-6K => /var/mail/mail <root@localhost> R=mail4root T=address_file
+2023-02-14 11:50:50 1pRtpi-000011-6K Completed
+2023-02-14 12:50:45 1pRulh-00001W-30 <= root@localhost U=root P=local S=30074
+2023-02-14 12:50:45 1pRulh-00001W-30 => /var/mail/mail <root@localhost> R=mail4root T=address_file
+2023-02-14 12:50:45 1pRulh-00001W-30 Completed
+2023-02-14 13:59:36 1pRvqK-000024-H2 <= root@localhost U=root P=local S=78863
+2023-02-14 13:59:36 1pRvqK-000024-H2 => /var/mail/mail <root@localhost> R=mail4root T=address_file
+2023-02-14 13:59:36 1pRvqK-000024-H2 Completed
+2023-02-14 14:59:33 1pRwmL-00002Z-64 <= root@localhost U=root P=local S=78860
+2023-02-14 14:59:33 1pRwmL-00002Z-64 => /var/mail/mail <root@localhost> R=mail4root T=address_file
+2023-02-14 14:59:33 1pRwmL-00002Z-64 Completed
+2023-02-14 15:59:35 1pRxiQ-000034-VT <= root@localhost U=root P=local S=78859
+2023-02-14 15:59:35 1pRxiQ-000034-VT => /var/mail/mail <root@localhost> R=mail4root T=address_file
+2023-02-14 15:59:35 1pRxiQ-000034-VT Completed
+2023-02-14 16:59:22 1pRyeH-00003Z-VH <= root@localhost U=root P=local S=78862
+2023-02-14 16:59:22 1pRyeH-00003Z-VH => /var/mail/mail <root@localhost> R=mail4root T=address_file
+2023-02-14 16:59:22 1pRyeH-00003Z-VH Completed
+2023-02-15 04:05:53 1pS93J-000045-0S <= root@localhost U=root P=local S=127777
+2023-02-15 04:05:53 1pS93J-000045-0S => /var/mail/mail <root@localhost> R=mail4root T=address_file
+2023-02-15 04:05:53 1pS93J-000045-0S Completed
+2023-02-15 05:54:37 1pSAkX-00004X-Et <= root@localhost U=root P=local S=30188
+2023-02-15 05:54:37 1pSAkX-00004X-Et => /var/mail/mail <root@localhost> R=mail4root T=address_file
+2023-02-15 05:54:37 1pSAkX-00004X-Et Completed
+2023-02-15 06:56:44 1pSBie-00005D-Mf <= root@localhost U=root P=local S=30315
+2023-02-15 06:56:44 1pSBie-00005D-Mf => /var/mail/mail <root@localhost> R=mail4root T=address_file
+2023-02-15 06:56:44 1pSBie-00005D-Mf Completed
+2023-02-15 07:53:34 1pSCbe-00005c-Im <= root@localhost U=root P=local S=30314
+2023-02-15 07:53:34 1pSCbe-00005c-Im => /var/mail/mail <root@localhost> R=mail4root T=address_file
+2023-02-15 07:53:34 1pSCbe-00005c-Im Completed
+2023-02-15 08:57:47 1pSDbn-000080-97 <= root@localhost U=root P=local S=70269
+2023-02-15 08:57:47 1pSDbn-000080-97 => /var/mail/mail <root@localhost> R=mail4root T=address_file
+2023-02-15 08:57:47 1pSDbn-000080-97 Completed
+2023-02-15 09:59:33 1pSEZZ-00008V-5p <= root@localhost U=root P=local S=75470
+2023-02-15 09:59:33 1pSEZZ-00008V-5p => /var/mail/mail <root@localhost> R=mail4root T=address_file
+2023-02-15 09:59:33 1pSEZZ-00008V-5p Completed
+2023-02-15 11:59:31 1pSGRf-000090-9L <= root@localhost U=root P=local S=77487
+2023-02-15 11:59:31 1pSGRf-000090-9L => /var/mail/mail <root@localhost> R=mail4root T=address_file
+2023-02-15 11:59:31 1pSGRf-000090-9L Completed
+2023-02-15 17:59:13 1pSM3l-00009Y-G5 <= root@localhost U=root P=local S=75479
+2023-02-15 17:59:13 1pSM3l-00009Y-G5 => /var/mail/mail <root@localhost> R=mail4root T=address_file
+2023-02-15 17:59:13 1pSM3l-00009Y-G5 Completed
+2023-02-16 03:00:16 1pSUVL-0000AC-UT <= root@localhost U=root P=local S=82128
+2023-02-16 03:00:16 1pSUVL-0000AC-UT => /var/mail/mail <root@localhost> R=mail4root T=address_file
+2023-02-16 03:00:16 1pSUVL-0000AC-UT Completed

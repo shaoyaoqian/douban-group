@@ -3,4 +3,6 @@ services:
   crawler:
     build: ../
     volumes:
-      - ./data:/opt/src
+        - ./log:/var/log
+        - ./data:/data
+    #   - ./data:/opt/src
