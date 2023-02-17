@@ -18,7 +18,11 @@ if __name__ == '__main__':
         
         m = MIMEMultipart()
         content = '湖北新闻汇总:\n'
-        content += f'湖北日报：https://epaper.hubeidaily.net/pad/column/202302/11/node_01.html\n'
+        content += f'湖北日报:https://epaper.hubeidaily.net/pad/column/202302/11/node_01.html\n'
+        content += '\n\n\n\n\n'
+        content += f'还未抓取内容：\n'
+        content += f'湖北新闻:https://news.hbtv.com.cn/cjy_hbxw/index.html\n'
+        content += f'武汉新闻:http://www.whtv.com.cn/channel?id=25\n'
         textApart = MIMEText(content)
         m.attach(textApart)
  

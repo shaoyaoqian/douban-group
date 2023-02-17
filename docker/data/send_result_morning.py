@@ -18,21 +18,20 @@ if __name__ == '__main__':
         
         m = MIMEMultipart()
         content = '湖北新闻汇总:\n'
-        content += f'湖北日报：https://epaper.hubeidaily.net/pad/column/202302/11/node_01.html\n'
         content += f'长江日报：http://cjrb.cjn.cn/html/2023-02/12/node_1.htm\n'
         content += f'中国青年报：http://zqb.cyol.com/html/2023-02/10/nbs.D110000zgqnb_01.htm\n'
         content += f'科技日报：http://digitalpaper.stdaily.com/http_www.kjrb.com/kjrb/html/2023-02/10/node_2.htm\n'
         content += '\n\n\n\n\n'
-        content += '还未抓取内容：\n'
-        content += '荆楚网：http://wh.cnhubei.com\n'
-        content += '湖北网络广播电视台：https://news.hbtv.com.cn/cjy_hbxw/index.html\n'
-        content += '极目新闻：http://www.ctdsb.net/\n'
-        content += '中国新闻网｜湖北：http://www.hb.chinanews.com.cn/\n'
-        content += '中国经济网：http://www.ce.cn/\n'
-        content += '黄鹤云：http://www.whtv.com.cn/\n'
+        content += f'还未抓取内容：\n'
+        content += f'经济日报：http://paper.ce.cn/pc/layout/202302/17/node_01.html\n'
+        content += f'人民日报：http://paper.people.com.cn/rmrb/html/2023-02/17/nbs.D110000renmrb_01.htm\n'
+        content += f'中国新闻网｜湖北：http://www.hb.chinanews.com.cn/\n'
+        content += f'荆楚网：http://wh.cnhubei.com\n'
         textApart = MIMEText(content)
         m.attach(textApart)
- 
+
+        content += f'湖北日报：https://epaper.hubeidaily.net/pad/column/202302/11/node_01.html\n'
+
         # 湖北日报
         pdfFile = 'hubei_daily.html'
         pdfApart = MIMEApplication(open(pdfFile, 'rb').read())
