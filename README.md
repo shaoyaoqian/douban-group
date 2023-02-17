@@ -1,5 +1,10 @@
 
-使用方法：
+# 使用方法
+```
+cd docker && sudo docker-compose build
+sudo docker-compose up -d
+```
+
 # 为推动我国光电子信息产业加快发展作出更大贡献
 ## 市场加速回暖(有些文章没有二级标题)
 ### 关键词：光谷, 东湖, 刘洁, 光电, 长飞, 新芯
