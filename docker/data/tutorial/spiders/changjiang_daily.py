@@ -23,7 +23,7 @@ class QuotesSpider(scrapy.Spider):
             print(local_url)
             yield scrapy.Request(url=response.urljoin(local_url), callback=self.parse)
         
-        for a in response.css('.one'):
+        for a in response.css('#titleList li'):
             local_url = a.css('a::attr(href)').get()
             print(local_url)
             yield scrapy.Request(url=response.urljoin(local_url), callback=self.parse_content)
