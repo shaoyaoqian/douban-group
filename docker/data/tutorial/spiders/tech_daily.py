@@ -8,9 +8,10 @@ article_header_raw = '<h1>{main_title}</h1><h2>{sub_title}</h2><h3>发布时间�
 filename = f'tech_daily.html'
 filename_2 = f'tech_daily_sorted.html'
 news_kind = '科技日报'
+now_in_beijing = time.localtime(time.time()+28800)
 
-year_month = time.strftime("%Y-%m",time.localtime())
-date = int(time.strftime("%d",time.localtime()))
+year_month = time.strftime("%Y-%m",now_in_beijing)
+date = int(time.strftime("%d",now_in_beijing))
 class QuotesSpider(scrapy.Spider):
     name = "tech_daily"
     start_urls = [
@@ -33,7 +34,7 @@ class QuotesSpider(scrapy.Spider):
     def parse_content(self, response):
         main_title = response.css('.biaoti').get()
         sub_title = response.css('.futi').get() or ''
-        date = time.strftime("%Y年%m月%d日",time.localtime())
+        date = time.strftime("%Y年%m月%d日",now_in_beijing)
         url = response.url
         content = response.css('#ozoom').get()
         article_header = article_header_raw.format(main_title=main_title,sub_title=sub_title,date=date,url=url,kind=news_kind)

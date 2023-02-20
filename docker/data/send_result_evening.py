@@ -5,7 +5,7 @@ from email.mime.image import MIMEImage
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication 
 
-
+now_in_beijing = time.localtime(time.time()+28800)
 smtpObj = smtplib.SMTP_SSL("smtp.qq.com")
 smtpObj.login("499908174@qq.com","zzokkzruycbobicd")
 smtpObj.sendmail("499908174@qq.com","mapengfei@mail.nwpu.edu.cn","ddddfasdfa")
@@ -39,7 +39,7 @@ if __name__ == '__main__':
         m['Subject'] = '湖北日报'
         m['From'] = f'马鹏飞 <{fromaddr}>'
         m['To'] = f'许诺 <{toaddrs}>'
-        m['Date']= time.strftime("%Y-%m-%d",time.localtime())
+        m['Date']= time.strftime("%Y-%m-%d",now_in_beijing)
  
         try:
             server = smtplib.SMTP('smtp.qq.com')

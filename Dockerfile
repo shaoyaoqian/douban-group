@@ -11,9 +11,10 @@ FROM builder as builder_ex
 RUN sed -i "s@http://deb.debian.org@https://mirrors.163.com@g" /etc/apt/sources.list
 
 # Set timezone
-RUN apt-get install -y tzdata
-RUN ln -sf /usr/share/zoneinfo/$TZ /etc/localtime
-RUN echo $TZ > /etc/timezone
+# ERROR: It seems did not change anything.
+# RUN apt-get install -y tzdata
+# RUN ln -sf /usr/share/zoneinfo/$TZ /etc/localtime
+# RUN echo $TZ > /etc/timezone
 
 # Install cron
 RUN apt-get update && apt-get -y install cron 

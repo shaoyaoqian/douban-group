@@ -3,7 +3,7 @@ PATH="/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bi
 # 北京时间 - 8 
 # 每天执行一次湖北新闻
  40 * * * * cd /data && bash ./run.sh
- 40 7 * * * cd /data && bash ./run.sh
- 00 22 * * * cd /data && bash ./run_evening.sh
+ 40 0 * * * cd /data && bash ./run.sh
+ 00 14 * * * cd /data && bash ./run_evening.sh
  55 * * * * /bin/date >> /opt/src/time.txt
 # An empty line is required at the end of this file for a valid cron file.

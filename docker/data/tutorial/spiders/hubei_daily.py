@@ -5,9 +5,10 @@ import time
 from .sort_news import find_key_words
 
 article_header_raw = '<h1>{main_title}</h1><h2>{sub_title}</h2><h3>发布时间：{date}&ensp;&ensp;原文链接：<a href="{url}">{kind}</a></h3>'
+now_in_beijing = time.localtime(time.time()+28800)
 
-year_month = time.strftime("%Y%m",time.localtime())
-date = int(time.strftime("%d",time.localtime()))
+year_month = time.strftime("%Y%m",now_in_beijing)
+date = int(time.strftime("%d",now_in_beijing))
 class QuotesSpider(scrapy.Spider):
     name = "hubei_daily"
     start_urls = [

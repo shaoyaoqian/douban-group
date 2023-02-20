@@ -5,7 +5,7 @@ from email.mime.image import MIMEImage
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication 
 
-
+now_in_beijing = time.localtime(time.time()+28800)
 smtpObj = smtplib.SMTP_SSL("smtp.qq.com")
 smtpObj.login("499908174@qq.com","zzokkzruycbobicd")
 smtpObj.sendmail("499908174@qq.com","mapengfei@mail.nwpu.edu.cn","ddddfasdfa")
@@ -30,17 +30,17 @@ if __name__ == '__main__':
         textApart = MIMEText(content)
         m.attach(textApart)
 
-        content += f'湖北日报：https://epaper.hubeidaily.net/pad/column/202302/11/node_01.html\n'
+        # content += f'湖北日报：https://epaper.hubeidaily.net/pad/column/202302/11/node_01.html\n'
 
-        # 湖北日报
-        pdfFile = 'hubei_daily.html'
-        pdfApart = MIMEApplication(open(pdfFile, 'rb').read())
-        pdfApart.add_header('Content-Disposition', 'attachment', filename=pdfFile)
-        m.attach(pdfApart)
-        pdfFile = 'hubei_daily_sorted.html'
-        pdfApart = MIMEApplication(open(pdfFile, 'rb').read())
-        pdfApart.add_header('Content-Disposition', 'attachment', filename=pdfFile)
-        m.attach(pdfApart)
+        # # 湖北日报
+        # pdfFile = 'hubei_daily.html'
+        # pdfApart = MIMEApplication(open(pdfFile, 'rb').read())
+        # pdfApart.add_header('Content-Disposition', 'attachment', filename=pdfFile)
+        # m.attach(pdfApart)
+        # pdfFile = 'hubei_daily_sorted.html'
+        # pdfApart = MIMEApplication(open(pdfFile, 'rb').read())
+        # pdfApart.add_header('Content-Disposition', 'attachment', filename=pdfFile)
+        # m.attach(pdfApart)
 
         # 长江日报
         pdfFile = 'changjiang_daily.html'
@@ -75,7 +75,7 @@ if __name__ == '__main__':
         m['Subject'] = '湖北新闻摘要'
         m['From'] = f'马鹏飞 <{fromaddr}>'
         m['To'] = f'许诺 <{toaddrs}>'
-        m['Date']= time.strftime("%Y-%m-%d",time.localtime())
+        m['Date']= time.strftime("%Y-%m-%d",now_in_beijing)
  
         try:
             server = smtplib.SMTP('smtp.qq.com')
