@@ -8,7 +8,11 @@ RUN pip install -r requirements.txt
 
 
 FROM builder as builder_ex
-RUN sed -i "s@http://deb.debian.org@https://mirrors.163.com@g" /etc/apt/sources.list
+RUN rm /etc/apt/sources.list
+RUN echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free" >> /etc/apt/sources.list
+RUN echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free" >> /etc/apt/sources.list
+RUN echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free" >> /etc/apt/sources.list
+RUN echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free" >> /etc/apt/sources.list
 
 # Set timezone
 # ERROR: It seems did not change anything.
@@ -17,7 +21,8 @@ RUN sed -i "s@http://deb.debian.org@https://mirrors.163.com@g" /etc/apt/sources.
 # RUN echo $TZ > /etc/timezone
 
 # Install cron
-RUN apt-get update && apt-get -y install cron 
+RUN apt-get update 
+RUN apt-get -y install cron 
 # Copy hello-cron file to the cron.d directory
 COPY src/cronfile /etc/cron.d/cron
 # Give execution rights on the cron job

@@ -13,9 +13,6 @@ class QuotesSpider(scrapy.Spider):
     name = "hubei_daily"
     start_urls = [
         f'https://epaper.hubeidaily.net/pad/column/{year_month}/{date}/node_01.html',
-        f'https://epaper.hubeidaily.net/pad/column/{year_month}/{date}/node_02.html',
-        f'https://epaper.hubeidaily.net/pad/column/{year_month}/{date}/node_03.html',
-        f'https://epaper.hubeidaily.net/pad/column/{year_month}/{date}/node_04.html',
     ]
     
     def parse(self, response):

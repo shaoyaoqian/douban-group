@@ -3,3 +3,5 @@ __pycache__
 img
 .DS_Store
 docker/data/time.txt
+*.htm
+*.htm.*

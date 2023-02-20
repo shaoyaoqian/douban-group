@@ -17,26 +17,19 @@ if __name__ == '__main__':
         toaddrs = ['dhgxwxb@163.com', '499908174@qq.com']
         
         m = MIMEMultipart()
-        content = '湖北新闻汇总:\n'
-        content += f'湖北日报:https://epaper.hubeidaily.net/pad/column/202302/11/node_01.html\n'
+        content = '湖北新闻汇总(晚上):\n'
+        content += f'暂无\n'
         content += '\n\n\n\n\n'
         content += f'还未抓取内容：\n'
         content += f'湖北新闻:https://news.hbtv.com.cn/cjy_hbxw/index.html\n'
         content += f'武汉新闻:http://www.whtv.com.cn/channel?id=25\n'
+        content += f'中国新闻网｜湖北：http://www.hb.chinanews.com.cn/\n'
+        content += f'荆楚网：http://wh.cnhubei.com\n'
         textApart = MIMEText(content)
         m.attach(textApart)
  
-        # 湖北日报
-        pdfFile = 'hubei_daily.html'
-        pdfApart = MIMEApplication(open(pdfFile, 'rb').read())
-        pdfApart.add_header('Content-Disposition', 'attachment', filename=pdfFile)
-        m.attach(pdfApart)
-        pdfFile = 'hubei_daily_sorted.html'
-        pdfApart = MIMEApplication(open(pdfFile, 'rb').read())
-        pdfApart.add_header('Content-Disposition', 'attachment', filename=pdfFile)
-        m.attach(pdfApart)
 
-        m['Subject'] = '湖北日报'
+        m['Subject'] = '湖北新闻摘要(晚上)'
         m['From'] = f'马鹏飞 <{fromaddr}>'
         m['To'] = f'许诺 <{toaddrs}>'
         m['Date']= time.strftime("%Y-%m-%d",now_in_beijing)
