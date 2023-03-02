@@ -8,7 +8,7 @@ article_header_raw = '<h1>{main_title}</h1><h2>{sub_title}</h2><h3>发布时间�
 
 now_in_beijing = time.localtime(time.time()+28800)
 year_month = time.strftime("%Y-%m",now_in_beijing)
-date = int(time.strftime("%d",now_in_beijing))
+date = time.strftime("%d",now_in_beijing)
 class QuotesSpider(scrapy.Spider):
     name = "changjiang_daily"
     start_urls = [

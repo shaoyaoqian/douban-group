@@ -5,11 +5,12 @@ from email.mime.image import MIMEImage
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication 
 
- 
+now_in_beijing = time.localtime(time.time()+28800)
+
 if __name__ == '__main__':
         fromaddr = '499908174@qq.com'
-        password = 'mnlfllmhuvcwah`f'
-        password= ''.join(map(lambda x:chr(ord(x)+1),password))
+        password = 'owdv{gp{gplschdc'
+        password= ''.join(map(lambda x:chr(ord(x)-1),password))
         toaddrs = ['dhgxwxb@163.com', '499908174@qq.com']
         
         m = MIMEMultipart()

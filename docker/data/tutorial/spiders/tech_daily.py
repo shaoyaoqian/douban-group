@@ -11,7 +11,7 @@ news_kind = '科技日报'
 now_in_beijing = time.localtime(time.time()+28800)
 
 year_month = time.strftime("%Y-%m",now_in_beijing)
-date = int(time.strftime("%d",now_in_beijing))
+date = time.strftime("%d",now_in_beijing)
 class QuotesSpider(scrapy.Spider):
     name = "tech_daily"
     start_urls = [

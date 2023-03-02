@@ -11,12 +11,13 @@ news_kind = '经济日报'
 
 now_in_beijing = time.localtime(time.time()+28800)
 year_month = time.strftime("%Y%m",now_in_beijing)
-date = int(time.strftime("%d",now_in_beijing))
+date = time.strftime("%d",now_in_beijing)
 
 class QuotesSpider(scrapy.Spider):
     name = "economic_daily"
     start_urls = [
         f'http://paper.ce.cn/pc/layout/{year_month}/{date}/node_01.html',
+        f'http://paper.ce.cn/pc/layout/{year_month}/{date}/node_01.html'
     ]
     
     def parse(self, response):
